@@ -14,17 +14,25 @@ function showNotification(message, type) {
 
 /* Dark mode toggle */
 function initDarkMode() {
-  const btn = document.getElementById('themeToggle');
-  if (!btn) return;
+  const btns = [
+    document.getElementById('themeToggle'),
+    document.getElementById('themeToggleDesktop')
+  ].filter(Boolean);
+
+  if (!btns.length) return;
+
   if (localStorage.getItem('gather_theme') === 'dark') {
     document.body.classList.add('dark-mode');
-    btn.textContent = '☀';
+    btns.forEach(b => b.textContent = '☀️');
   }
-  btn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    const isDark = document.body.classList.contains('dark-mode');
-    localStorage.setItem('gather_theme', isDark ? 'dark' : 'light');
-    btn.textContent = isDark ? '☀' : '🌙';
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('gather_theme', isDark ? 'dark' : 'light');
+      btns.forEach(b => b.textContent = isDark ? '☀️' : '🌙');
+    });
   });
 }
 

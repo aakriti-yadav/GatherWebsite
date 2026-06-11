@@ -177,6 +177,7 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 1rem; }
   margin-bottom: 1rem;
 }
 
+
 /* Hero */
 .hero {
   padding: 6rem 1rem 4rem;
@@ -464,11 +465,14 @@ h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 1rem; }
   }
 }
 
+
 @media (max-width: 480px) {
   .hero .glass-card { padding: 1.5rem 1rem; }
   .stat-card .stat-number { font-size: 1.8rem; }
   .btn-pastel, .btn-outline-pastel { width: 100%; text-align: center; }
 }
+
+
 
 /* Dark mode fixes */
 body.dark-mode .tag {
@@ -511,4 +515,24 @@ body.dark-mode h5 {
 }
 .btn-pastel.ripple::after, .btn-outline-pastel.ripple::after {
   width: 300px; height: 300px; opacity: 0;
+}
+
+@media (max-width: 991px) {
+  .navbar-toggler {
+    border: none;
+    padding: 4px;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+
+  .theme-toggle {
+    position: static;
+    transform: none !important;
+  }
+
+  .theme-toggle:hover {
+    transform: none !important;
+  }
 }
